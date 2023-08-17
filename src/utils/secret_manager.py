@@ -3,6 +3,7 @@ import os
 
 class SecretManager:
     def __init__(self):
+        #these would be loaded from key vault in production
         self.corpus_id = 5
         self.vectara_client_id = '1s2b6jrp71t9srf1e9ibe1fiph'
         self.vectara_api_key = '1bvgbikdadl1rgfacg9o0ntvobk80v86duv339i3arjirp9sfken'
