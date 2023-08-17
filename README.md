@@ -8,7 +8,7 @@ poetry install
 ## run frontend locally
 ```bash
 export PYTHONPATH=.
-python src/ui/ui.py
+python streamlit_app.py
 ```
 
 ## Approach to indexation and QA

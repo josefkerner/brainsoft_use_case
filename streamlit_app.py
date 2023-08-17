@@ -1,5 +1,4 @@
 from src.rest.controller import Controller
-import openai
 import streamlit as st
 from src.data_model.question import Question
 from src.data_model.answer import Answer
@@ -30,6 +29,5 @@ class UI:
             st.chat_message("assistant").write(full_answer)
 
 
-if __name__ == '__main__':
-    ui = UI()
-    ui.chat()
+ui = UI()
+ui.chat()
