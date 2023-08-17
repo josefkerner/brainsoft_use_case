@@ -10,5 +10,5 @@ class SecretManager:
 
         self.customer_id = '1464859115'
         self.oauth_url = "https://vectara-prod-1464859115.auth.us-west-2.amazoncognito.com"
-        self.openai_api_key = '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'
+
         self.vectara2_api_key = 'zwt_V0_565r6ynhNoRqSaIVCnfD1EIzpf67bGWA5fA'

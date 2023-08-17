@@ -30,7 +30,6 @@ class RetrievalAgent:
             template="Content: {page_content}\nSource: {source} \n",
             input_variables=["page_content", "source"],
         )
-        os.environ['OPENAI_API_KEY'] = self.secret_manager.openai_api_key
 
         llm_src = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613")
 
@@ -75,8 +74,12 @@ class RetrievalAgent:
         answer = answer.replace('\n','')
         #convert string to json
         answer = json.loads(answer)
-        source = str(answer['sources'][0]).replace('docs\\','')
+        if len(answer['sources']) > 0:
+            source = str(answer['sources'][0]).replace('docs\\','')
+        else:
+            source = 'No source found'
         return answer['answer'], source
+
 
 
 
