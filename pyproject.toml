@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "brainsoft_use_case"
+version = "0.1.0"
+description = "Implementation of GPT based document retrieval QA agent."
+authors = ["Josef Kerner <josef.kerner@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/josefkerner/brainsoft_use_case"
+packages = [
+    { include = "src" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+
+# REST service
+fastapi = "^0.73.0"
+
+#ASGI.server
+uvicorn = "^0.17.1"
+
+#ML
+
+pandas = "^2.0.2"
+
+#parsers
+unstructured= "^0.10.2"
+langchain = "^0.0.266"
+
+openai = "^0.27.6"
+tenacity = "^8.2.2"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-mock = "^3.6.1"
+pytest-cov = "2.12.1"
+pytest-html = "3.1.1"
+black = "^21.12b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
