@@ -23,12 +23,13 @@ class RetrievalAgent:
         :return:
         '''
 
-        os.environ['OPENAI_API_KEY'] = self.secret_manager.openai_api_key
+
 
         doc_prompt = PromptTemplate(
             template="Content: {page_content}\nSource: {source} \n",
             input_variables=["page_content", "source"],
         )
+        os.environ['OPENAI_API_KEY'] = self.secret_manager.openai_api_key
 
         llm_src = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613")
 
@@ -75,7 +76,9 @@ class RetrievalAgent:
         print('---------')
 
         answer_text = answer['result']
+        source = answer['sources']
 
         question.context.append((question.question,answer_text))
         return Answer(answer=answer_text,
-                      past_conversations=question.context)
+                      past_conversations=question.context,
+                      source=source)
