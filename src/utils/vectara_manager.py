@@ -2,18 +2,13 @@ import json
 import ssl
 orig_sslsocket_init = ssl.SSLSocket.__init__
 ssl.SSLSocket.__init__ = lambda *args, cert_reqs=ssl.CERT_NONE, **kwargs: orig_sslsocket_init(*args, cert_reqs=ssl.CERT_NONE, **kwargs)
-from langchain.chains import ConversationalRetrievalChain
 
-from langchain.memory import ConversationBufferMemory
 from langchain.vectorstores import Vectara
-from langchain.chains import RetrievalQA
 from src.utils.secret_manager import SecretManager
 from authlib.integrations.requests_client import OAuth2Session
-from langchain.llms import OpenAI
 import logging, requests
 from typing import List, Dict
 import os
-from langchain.chat_models import ChatOpenAI
 
 class VectaraManager:
     def __init__(self):
